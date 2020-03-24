@@ -1,5 +1,5 @@
 # Treinando meu próprio cascade
-Os arquivos cascade para detecção de faces olhos são bastante conhecidos, mais às vezes precisamos detectar outros objetos, se esse for o caso provavelmente tera que criar seu próprio arquivo. Nesse exemplo trainamos um cascade para detectar um óculo de sol. Você pode usar sua webcam para capturar dados necessários.
+Arquivos cascade para detecção de faces, olhos são bastante conhecidos, mais às vezes precisamos detectar outros objetos, se esse for o caso provavelmente tera que criar seu próprio arquivo. Nesse exemplo trainamos um cascade para detectar um óculo de sol. Você pode usar sua webcam para capturar dados necessários.
 
 Vamos precisar de:
 * Um vídeo (ou conjunto de imagens) que contém o objeto que você queira detectar.
