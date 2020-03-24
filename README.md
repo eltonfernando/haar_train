@@ -56,7 +56,7 @@ Com isso teremos o arquivo necessário para passar para o parâmetro -info de op
 
 ## Criando arquivo positives.vec
 
-veja o script python [Prepara_train.py]()
+veja o script python [Prepara_train.py](Prepara_train.py)
 
 Argumentos da linha de comando:
 
@@ -70,4 +70,4 @@ Argumentos da linha de comando:
 
 * `-h <altura>`: Altura (em pixels) das amostras de saída.
 
-Para executar o treinamento, usaremos algumas variáveis definidas aqui, por isso coloquei tudo no mesmo arquivo [Prepara_train.py]()
+Para executar o treinamento, usaremos algumas variáveis definidas aqui, por isso coloquei tudo no mesmo arquivo [Prepara_train.py](Prepara_train.py)
