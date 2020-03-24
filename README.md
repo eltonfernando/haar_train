@@ -1,4 +1,4 @@
-# Trainando seu próprio cascade
+# Treinando meu próprio cascade
 Os arquivos cascade para detecção de faces olhos são bastante conhecidos, mais às vezes precisamos detectar outros objetos, se esse for o caso provavelmente tera que criar seu próprio arquivo. Nesse exemplo trainamos um cascade para detectar um óculo de sol. Você pode usar sua webcam para capturar dados necessários.
 
 Vamos precisar de:
@@ -30,7 +30,7 @@ Entre na pasta haar_train, onde vamos trabalhar.
 
 veja como criei o arquivo bg.txt usando o script [gerar_lista_img_negativas.py](gerar_lista_img_negativas.py)
 
-O arquivo info.txt além do caminho temos que anotar as localização do objeto na imagem, para isso usamos a ferramenta opencv_annotation 
+O arquivo info.txt além do caminho temos que anotar as localizações do objeto na imagem, para isso usamos a ferramenta opencv_annotation 
 
 
 Para iniciar a ferramenta de anotação rode no terminal, passando o arquivo info.txt e a pasta com as imagens positivas:
@@ -40,7 +40,7 @@ Para iniciar a ferramenta de anotação rode no terminal, passando o arquivo inf
 
 obs: info.txt é o arquivo de anotação, ele deve estar em branco e a ferramenta não cria caso ele não exista
 
-Com um clik você marca o ponto superior esquerdo do retângulo, arraste para desenhar e finaliza com segundo click. Após cada seleção, você tem as seguintes opções:
+Com um click você marca o ponto superior esquerdo do retângulo, arraste para desenhar e finaliza com segundo click. Após cada seleção, você tem as seguintes opções:
 
 ![start](./gif/annotation.gif)
 
@@ -70,4 +70,4 @@ Argumentos da linha de comando:
 
 * `-h <altura>`: Altura (em pixels) das amostras de saída.
 
-Para executar o treinamento usaremos algumas variáveis definidas aqui, por isso coloquei tudo no mesmo arquivo [Prepara_train.py]()
+Para executar o treinamento, usaremos algumas variáveis definidas aqui, por isso coloquei tudo no mesmo arquivo [Prepara_train.py]()
