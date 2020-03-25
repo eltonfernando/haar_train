@@ -87,3 +87,5 @@ Para executar o treinamento, usaremos algumas variáveis definidas aqui, por iss
 `-precalcIdxBufSize` combinados não devem exceder a memória do sistema disponível.
 
 * `-precalcIdxBufSize <precalculated_idxs_buffer_size_in_Mb>`: tamanho do buffer para índices de recursos pré-calculados (em Mb). Quanto mais memória você atribuir, mais rápido será o processo de treinamento, no entanto, lembre-se de que -precalcValBufSize e -precalcIdxBufSize combinados não devem exceder a memória do sistema disponível.
+
+![start](./gif/model_oculos.gif)

@@ -1,10 +1,12 @@
 import os
+import pandas as pd
+df=pd.read_csv('info.txt',delimiter=' ')
 
-w=80
-h=42
+w=int(df['82'].mean())
+h=int(df['28'].mean())
 numPos=len(os.listdir('./positivas'))
 numNeg=len(os.listdir("./negativas"))
-numStages=6
+numStages=15
 
 createsamples="opencv_createsamples "
 createsamples+='-bg bg.tx '
@@ -14,9 +16,8 @@ createsamples+='-w '+str(w)+' '
 createsamples+='-h '+str(h)+' '
 createsamples+='-vec positives.vec'
 
-
 #print(createsamples)
-os.system(createsamples)
+#os.system(createsamples)
 
 train='opencv_traincascade '
 train+='-data data '
@@ -29,8 +30,8 @@ train+='-w '+str(w)+' '
 train+='-h '+str(h)+' '
 train+= '-precalcValBufSize 2024 '
 train+= '-precalcIdxBufSize 2024'
-os.system(train)
+#os.system(train)
 print(train)
 
-cmd_result='opencv_visualisation --image=./modelo.png --model=./data/cascade.xml --data=data/log/'
+cmd_result='opencv_visualisation --image=./modelo.png --model=./cascade/oculos.xml --data=data/log/'
 os.system(cmd_result)

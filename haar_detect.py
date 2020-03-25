@@ -1,19 +1,18 @@
 
 import cv2
 
-watch_cascade = cv2.CascadeClassifier('./data/cascade.xml')
+watch_cascade = cv2.CascadeClassifier('./cascade/oculos.xml')
 
-cap = cv2.VideoCapture('./video_teste/positivo.avi')
+cap = cv2.VideoCapture('./positivo.avi')
 
 while 1:
     ret, img = cap.read()
     gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
-    watches = watch_cascade.detectMultiScale(gray,scaleFactor=1.2,
+    watches = watch_cascade.detectMultiScale(gray,scaleFactor=1.7,
     minNeighbors=1,
-    minSize=(30, 20),maxSize=(90,60))
+    minSize=(30, 20),maxSize=(80,50))
 
-    # add this
     for (x, y, w, h) in watches:
         cv2.rectangle(img, (x-4, y+h), (x + w+6, y+h+16), (255, 0, 0), cv2.FILLED)
         cv2.putText(img,'Oculos de sol',(x-4,y+h+13),cv2.FONT_ITALIC,0.43,(255,255,255),1)
