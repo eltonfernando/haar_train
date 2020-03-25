@@ -1,4 +1,4 @@
-import numpy as np
+
 import cv2
 import os
 watch_cascade = cv2.CascadeClassifier('./cascade/oculos.xml')
@@ -8,9 +8,7 @@ list_img=os.listdir('./img_teste')
 for img_name in list_img:
     img = cv2.imread('./img_teste/'+img_name)
     gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    #gray=cv2.resize(gray,(100,100))
-    # add this
-    # image, reject levels level weights.
+
     watches = watch_cascade.detectMultiScale(gray,scaleFactor=1.2,
     minNeighbors=1,
     minSize=(30, 20),maxSize=(90,60))

@@ -1,8 +1,6 @@
-import numpy as np
+
 import cv2
 
-
-# this is the cascade we just made. Call what you want
 watch_cascade = cv2.CascadeClassifier('./data/cascade.xml')
 
 cap = cv2.VideoCapture('./video_teste/positivo.avi')
@@ -10,9 +8,7 @@ cap = cv2.VideoCapture('./video_teste/positivo.avi')
 while 1:
     ret, img = cap.read()
     gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    #gray=cv2.resize(gray,(100,100))
-    # add this
-    # image, reject levels level weights.
+
     watches = watch_cascade.detectMultiScale(gray,scaleFactor=1.2,
     minNeighbors=1,
     minSize=(30, 20),maxSize=(90,60))
