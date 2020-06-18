@@ -9,6 +9,28 @@ Arquivos cascade para detecção de faces, olhos são bastante conhecidos, mais 
 
 `pip3 install opencv-python`
 
+cd ~
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+mkdir my_opencv
+
+cd my_opencv
+
+sudo apt-get install git
+
+git clone https://github.com/Itseez/opencv.git
+
+sudo apt-get install build-essential
+
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+sudo apt-get install libopencv-dev
+
 Vamos precisar de algumas imagens:
 * Um vídeo (ou conjunto de imagens) que contém o objeto que você queira detectar.
 * Um vídeo (ou conjunto de imagens) sem o objeto.
