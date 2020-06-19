@@ -9,6 +9,14 @@ Arquivos cascade para detecção de faces, olhos são bastante conhecidos, mais 
 
 `pip3 install opencv-python`
 
+sudo apt-get install build-essential
+
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+sudo apt-get install libopencv-dev
+
 cd ~
 
 sudo apt-get update
@@ -19,17 +27,30 @@ mkdir my_opencv
 
 cd my_opencv
 
-sudo apt-get install git
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.5.zip && unzip -qq opencv.zip
+wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.5.zip && unzip -qq opencv_contrib.zip
 
-git clone https://github.com/Itseez/opencv.git
+mkdir build
+cd build
 
-sudo apt-get install build-essential
+cmake -DBUILD_SHARED_LIBS=OFF \
+          -BUILD_opencv_apps=ON \
+          -DOPENCV_ENABLE_NONFREE:BOOL=ON \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_opencv_python2=OFF \
+          -DBUILD_opencv_python3=OFF \
+          -DINSTALL_C_EXAMPLES=OFF \
+          -DBUILD_TESTS=OFF \
+          -DBUILD_PERF_TESTS=OFF \
+          -DCMAKE_INSTALL_PREFIX=../out \
+          -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.5/modules \
+          ../opencv-3.4.5
 
-sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+make -j4
 
-sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+make install
 
-sudo apt-get install libopencv-dev
+
 
 Vamos precisar de algumas imagens:
 * Um vídeo (ou conjunto de imagens) que contém o objeto que você queira detectar.
