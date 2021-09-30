@@ -1,6 +1,13 @@
 # Treinando meu próprio cascade
 Arquivos cascade para detecção de faces, olhos são bastante conhecidos, mais às vezes precisamos detectar outros objetos, se esse for o caso provavelmente tera que criar seu próprio arquivo. Nesse exemplo trainamos um cascade para detectar um óculo de sol. Você pode usar sua webcam para capturar dados necessários.
 
+## baixando esse repositório
+
+`git clone https://github.com/eltonfernando/haar_train.git`
+
+Entre na pasta haar_train, onde vamos trabalhar.
+
+
 ## Dependências:
 - [Python 3.x](https://www.python.org/)
 - [opencv-python](https://pypi.org/project/opencv-python/)
@@ -8,7 +15,7 @@ Arquivos cascade para detecção de faces, olhos são bastante conhecidos, mais 
 `sudo apt-get install python3-dev python3-pip libopencv-dev`
 
 `pip3 install opencv-python`
-
+```
 sudo apt-get install build-essential
 
 sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
@@ -17,39 +24,45 @@ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libp
 
 sudo apt-get install libopencv-dev
 
-cd ~
+```
+##Baixando versão do opencv com suporte para treinar haar cascade
 
-sudo apt-get update
-
-sudo apt-get upgrade
-
-mkdir my_opencv
-
-cd my_opencv
-
-wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.5.zip && unzip -qq opencv.zip
-wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.5.zip && unzip -qq opencv_contrib.zip
-
+``wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.5.zip && unzip -qq opencv.zip``
+``wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.5.zip && unzip -qq opencv_contrib.zip``
+```
 mkdir build
 cd build
-
-cmake -DBUILD_SHARED_LIBS=OFF \
-          -BUILD_opencv_apps=ON \
-          -DOPENCV_ENABLE_NONFREE:BOOL=ON \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DBUILD_opencv_python2=OFF \
-          -DBUILD_opencv_python3=OFF \
-          -DINSTALL_C_EXAMPLES=OFF \
-          -DBUILD_TESTS=OFF \
-          -DBUILD_PERF_TESTS=OFF \
-          -DCMAKE_INSTALL_PREFIX=../out \
-          -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.5/modules \
-          ../opencv-3.4.5
-
+mkdir binary
+```
+```
+cmake -D CMAKE_CXX_FLAGS=-std=c++11 \
+-D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_C_COMPILER=/usr/bin/gcc-9 \
+-D CMAKE_INSTALL_PREFIX=./binary \
+-D BUILD_SHARED_LIBS=OFF \
+-D BUILD_opencv_apps=ON \
+-D OPENCV_ENABLE_NONFREE:BOOL=ON \
+-D INSTALL_PYTHON_EXAMPLES=OFF \
+-D BUILD_opencv_python2=OFF \
+-D BUILD_opencv_python3=OFF \
+-D INSTALL_C_EXAMPLES=OFF \
+-D BUILD_TESTS=OFF \
+-D BUILD_opencv_cudacodec=OFF \
+-D BUILD_EXAMPLES=OFF \
+-D MAKE_BUILD_TYPE=Debug \
+-D BUILD_opencv_stereo=OFF \
+-D BUILD_opencv_bioinspired=OFF \
+-D BUILD_opencv_fuzzy=OFF \
+-D BUILD_java=OFF \
+-D OPENCV_EXTRA_MODULES_PATH=./../../opencv_contrib-3.4.5/modules ..
+```
+compilando
+```
 make -j4
 
 make install
-
+```
+os executavél estão na pasta build/binary que criamos
 
 
 Vamos precisar de algumas imagens:
@@ -67,9 +80,7 @@ Precisamos realizar algumas tarefas:
 - (2) criar um arquivo info.txt contendo o caminho e as coordenado no objeto nas imagens positivas.
 - (3) Criar um arquivo .vec a partir das imagens positivas.
  
-`git clone https://github.com/eltonfernando/haar_train.git`
 
-Entre na pasta haar_train, onde vamos trabalhar.
 
 veja como criei o arquivo bg.txt usando o script [gerar_lista_img_negativas.py](gerar_lista_img_negativas.py)
 
