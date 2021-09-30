@@ -82,7 +82,7 @@ Precisamos realizar algumas tarefas:
  
 
 
-veja como criei o arquivo bg.txt usando o script [gerar_lista_img_negativas.py](gerar_lista_img_negativas.py)
+veja como criei o arquivo bg.txt usando o script [gerar_lista_img_negativas.py --input negativas](gerar_lista_img_negativas.py)
 
 O arquivo info.txt além do caminho temos que anotar as localizações do objeto na imagem, para isso usamos a ferramenta opencv_annotation 
 
